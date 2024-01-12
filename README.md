@@ -1,17 +1,21 @@
-# Traffic-Fatality-Prediction
-Predicting traffic fatalities and exploring dataset to identify specific contributing factors
+# Traffic Fatality Predictions
+Predicting traffic fatalities and exploring the dataset to identify specific contributing factors
 
 # Table of Contents
-1. [Objective](#objective)
-2. [The Dataset](#the-dataset)
-3. [Data Preparation](#data-preparation)
-4. [Modeling](#modeling)
+1. [Introduction](#introduction)
+2. [Objective](#objective)
+3. [The Dataset](#the-dataset)
+4. [Data Preparation](#data-preparation)
+5. [Modeling](#modeling)
 6. [Conclusion](#conclusion)
 7. [Future Plans](#future-plans)
 8. [References](#references)
 
+## Introduction
+According to the WHO, nearly 1.2 million people die worldwide every year from traffic accidents, with 20-50 million suffering injuries. Besides the cost of human lives and risk of injury, the cost of damages can be in the millions and be as much as 3% of a country's GDP. In an ideal situation with unlimited resources and manpower, all of these can be tended to, but unfortunately with increasing restraints on budgeting it's now more important than ever to plan appropriately to maximize on saving lives and costs. This is an area that data science can help make a difference in through observing trends and making predictions for better future planning.
+
 ## Objective
-- To build models that can predict whether or  not a fatality will occur in a vehicle, if an accident will lead to multiple fatalities, and to predict the number of fatalities from an accident
+- To build models that can predict whether or not a fatality will occur in a vehicle, if an accident will lead to multiple fatalities, and to predict the number of fatalities from an accident
 - Explore key factors in the dataset that may give further insight and possibly answer other questions
 
 ## The Dataset
