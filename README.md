@@ -27,7 +27,9 @@ According to the WHO, nearly 1.2 million people die worldwide every year from tr
 - Accident table contains 70 features, while vehicle table contains 115
 - While every entry in the accident table has at least one fatality, roughly half the vehicles in the vehicle table have fatalities since not every car involved in an accident would necessarily have a fatality inside
 
-For a detailed breakdown of the EDA, please refer to the EDA notebook file (EDA_formatting.ipynb).
+## EDA
+
+[Link to bar graphs for each feature](./src/EDA_formatting.ipynb#bar_graph)
 
 ## Data Preparation
 - Vehicle and Accident tables for 2015 and 2016 and the descriptions for each feature of these tables were saved using Jupyter Notebooks on Kaggle (link to code: https://www.kaggle.com/code/smwares/traffic-fatality-prediction )
