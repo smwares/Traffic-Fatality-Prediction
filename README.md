@@ -44,9 +44,49 @@ According to the WHO, nearly 1.2 million people die worldwide every year from tr
 
 Principal component analyis, recursive feature elimination with cross-validation, XGBoost's feature importance and variance threshold were all used to determine the optimal number of features to be used (PCA was only used for the first model). Random search cross-validation was used in combination with XGBoost's classification and regression to build models with best evaluation metrics. For the second and third types of models, one variant of each were built using the Accident table only and another of each were built using the combined Accident and Vehicle table.
 
-First model that was built was a model to predict if a vehicle involved in an accident had anyone who suffered a fatality. According to the PCA, the top 15 features explains nearly half (47%) of the variance in the data. The results of RFE-CV also confirms this. Building a model using XGBoost classification with random search cross-validation and using top 15 features according to XGBoost's feature importance results in a model that can predict a fatality in a vehicle with 80% accuracy, even when using 2016's data. For reference, using all of the features results in a model with 88% accuracy.
+### First Model Type
+
+First model that was built was a model to predict if a vehicle involved in an accident had anyone who suffered a fatality.
+PCA:
+
+According to the PCA, the top 15 features explains nearly half (47%) of the variance in the data.
+
+RFE-CV:
+
+The results of RFE-CV also confirms that 15 features is optimal for making predictions.
+
+Using variance threshold with a threshold of 0.2, 37 features are sufficient to meet the threshold.
+
+Correlation maxtix of top features using a variance threshold of 0.2:
+
+XGBoost model results using top features determined by variance threshold of 0.2 (2015 test set):
+
+XGBoost feature importance:
+
+Correlation matrix of top 15 features determined by XGBoost:
+
+XGBoost stock results using top 15 features (2015 test set):
+
+XGBoost stock results using all features (2015 test set):
+
+XGBoost stock results using all features (2016 set):
+
+XGBoost random search CV results using top 15 features (2015 test set):
+
+XGBoost random search CV results using top 15 features (2016 set):
+
+Building a model using XGBoost classification with random search cross-validation and using top 15 features according to XGBoost's feature importance results in a model that can predict a fatality in a vehicle with 80% accuracy, even when using 2016's data. For reference, using all of the features results in a model with 88% accuracy. Comparing evaluation metrics of models that were built using different methods of determining feature importance, it seems that XGBoost's feature importance slightly edges out variance threshold, despite using only 15 features VS 37 features that variance threshold determined to be best for meeting a threshold of 0.2. For the rest of the models, XGBoost's feature importance will be used.
+
+### Second Model Type - Accident Dataset Only
+
+### Second Model Type - Accident and Vehicle Datasets Combined
 
 Second model that was built was a model to predict if an accident resulted in a single fatality or multiple fatalities, and the third model that was built was a model to predict the number of fatalities in an accident. Despite trying different amounts of data and random search to find the best parameters, neither of these models provided good results as there isn't enough data, especially for the second model since an overwhelming amount of accidents in the dataset contained a single fatality.
+
+### Third Model Type - Accident Dataset Only
+
+### Third Model Type - Accident and Vehicle Datasets Combined
+
 
 For additional component analyses and evaluation results, please refer to the modeling notebook files.
 
