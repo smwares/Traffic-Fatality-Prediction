@@ -47,33 +47,54 @@ Principal component analyis, recursive feature elimination with cross-validation
 ### First Model Type
 
 First model that was built was a model to predict if a vehicle involved in an accident had anyone who suffered a fatality.
-PCA:
 
+PCA:
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-pca.png)
 According to the PCA, the top 15 features explains nearly half (47%) of the variance in the data.
 
 RFE-CV:
-
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-rfecv.png)
 The results of RFE-CV also confirms that 15 features is optimal for making predictions.
 
 Using variance threshold with a threshold of 0.2, 37 features are sufficient to meet the threshold.
-
-Correlation maxtix of top features using a variance threshold of 0.2:
+Correlation matrix of top features using a variance threshold of 0.2:
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-corr-matrix-heatmap-vt.png)
 
 XGBoost model results using top features determined by variance threshold of 0.2 (2015 test set):
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-classification-report-vt.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-cm-vt.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-auc-roc-curve-vt.png)
 
 XGBoost feature importance:
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-xgb-feat-importance.png)
 
 Correlation matrix of top 15 features determined by XGBoost:
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-corr-matrix-heatmap.png)
 
 XGBoost stock results using top 15 features (2015 test set):
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-classification-report-def.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-cm-def.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-auc-roc-curve-def.png)
 
 XGBoost stock results using all features (2015 test set):
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-classification-report-all.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-cm-all.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-auc-roc-curve-all.png)
 
 XGBoost stock results using all features (2016 set):
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2016-classification-report-all.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2016-cm-all.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2016-auc-roc-curve-all.png)
 
 XGBoost random search CV results using top 15 features (2015 test set):
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-classification-report.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-cm.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2015test-auc-roc-curve.png)
 
 XGBoost random search CV results using top 15 features (2016 set):
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2016-classification-report.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2016-cm.png)
+![alt text](https://raw.githubusercontent.com/smwares/Traffic-Fatality-Prediction/main/img/model1-2016-auc-roc-curve.png)
 
 Building a model using XGBoost classification with random search cross-validation and using top 15 features according to XGBoost's feature importance results in a model that can predict a fatality in a vehicle with 80% accuracy, even when using 2016's data. For reference, using all of the features results in a model with 88% accuracy. Comparing evaluation metrics of models that were built using different methods of determining feature importance, it seems that XGBoost's feature importance slightly edges out variance threshold, despite using only 15 features VS 37 features that variance threshold determined to be best for meeting a threshold of 0.2. For the rest of the models, XGBoost's feature importance will be used.
 
