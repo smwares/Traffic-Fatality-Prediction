@@ -98,18 +98,29 @@ XGBoost random search CV results using top 15 features (2016 set):
 
 Building a model using XGBoost classification with random search cross-validation and using top 15 features according to XGBoost's feature importance results in a model that can predict a fatality in a vehicle with 80% accuracy, even when using 2016's data. For reference, using all of the features results in a model with 88% accuracy. Comparing evaluation metrics of models that were built using different methods of determining feature importance, it seems that XGBoost's feature importance slightly edges out variance threshold, despite using only 15 features VS 37 features that variance threshold determined to be best for meeting a threshold of 0.2. For the rest of the models, XGBoost's feature importance will be used.
 
-### Second Model Type - Accident Dataset Only
-
 ### Second Model Type - Accident and Vehicle Datasets Combined
 
-Second model that was built was a model to predict if an accident resulted in a single fatality or multiple fatalities, and the third model that was built was a model to predict the number of fatalities in an accident. Despite trying different amounts of data and random search to find the best parameters, neither of these models provided good results as there isn't enough data, especially for the second model since an overwhelming amount of accidents in the dataset contained a single fatality.
+Second model that was built was a model to predict if an accident resulted in a single fatality or multiple fatalities. While the 2015 test set showed fair results, the model showed poor scores for the positive results. One reason for this could be that there simply wasn't enough data that was used to build the model on, as the data is heavily imbalanced due to an overwhelming amount of accidents resulting in a single fatality. Another could be that not enough features were used to build the model.
 
-### Third Model Type - Accident Dataset Only
+[Refer to notebook for evaluation metrics](./src/modeling-multi-fatality-classification.ipynb)
+
+### Second Model Type - Accident Dataset Only
+
+When using only the Accident dataset, the results were similar to the combined dataset.
+
+[Refer to notebook for evaluation metrics](./src/modeling-multi-fatality-classification-accident-only.ipynb)
 
 ### Third Model Type - Accident and Vehicle Datasets Combined
 
+The third model that was built was a regression model to predict how many fatalities occured in a vehicle. While the mean squared and mean absolute errors were somewhat low, the root mean squared and r-squared errors were mediocre, and especially poor when using the 2016 data as a test set. A model was also built combining data from 2015 and 2016, which showed better results on the combined test set VS the results for the 2016 set when using the previously built model, meaning that using more data could help build a better predictor.
 
-For additional component analyses and evaluation results, please refer to the modeling notebook files.
+[Refer to notebook for evaluation metrics](./src/modeling-regression.ipynb)
+
+### Third Model Type - Accident Dataset Only
+
+When using only the Accident dataset, the results were similar to the combined dataset.
+
+[Refer to notebook for evaluation metrics](./src/modeling-regression-accident-only.ipynb)
 
 ## Conclusion
 
@@ -120,9 +131,11 @@ For additional component analyses and evaluation results, please refer to the mo
 
 ## Future Plans
  
-- Get data on Canadian statistics for relevancy
+- Expand parameter optimization
+- Experiment with other modeling techniques
 - Get data beyond two years for both a larger training dataset and a testing dataset
 - Get information on ALL accidents to explore more model building options other than predicting fatalities
+- Get data on Canadian statistics for relevancy
 
 ## References
 <a href="https://www.kaggle.com/datasets/usdot/nhtsa-traffic-fatalities">USA Traffic Fatality Records</a> - Kaggle
